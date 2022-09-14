@@ -23,20 +23,25 @@ c(8,9,10);
 console.log(b); //10
 console.log(x);//1
 
+//Ejercicio 2 
+
 
 console.log(bar);//undefiend
-console.log(baz);//
+//console.log(baz);//
 foo();
 function foo() { console.log('Hola!'); }//hola!
 var bar = 1;
-var baz = 2;
+ baz = 2;
 
+//Ejercicio 3
 
 var instructor = "Tony";
 if(true) {
     var instructor = "Franco";
 }
 console.log(instructor);//Franco
+
+//Ejercicio 4
 
 var instructor = "Tony";
 console.log(instructor);// Tony
@@ -46,7 +51,9 @@ console.log(instructor);// Tony
       console.log(instructor); //Franco
    }
 })();
-console.log(instructor); //TOny
+console.log(instructor); //Tony
+
+//Ejercicio 5
 
 var instructor = "Tony";
 let pm = "Franco";
@@ -66,7 +73,7 @@ console.log(pm); //Franco
 6 / "3" //2
 "2" * "3" //6
 4 + 5 + "px" // 9px
-"$" + 4 + 5
+"$" + 4 + 5 //
 "4" - 2
 "4px" - 2
 7 / 0
@@ -84,11 +91,9 @@ parseInt("09")
 //> Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
 
 
-//### Hoisting
-/*
-¿Cuál es el output o salida en consola luego de ejecutar este código? Explicar por qué:
+/*### Hoisting
+¿Cuál es el output o salida en consola luego de ejecutar este código? Explicar por qué:*/
 
-```javascript*/
 function test() {
    console.log(a);// undefined
    console.log(foo());//2
@@ -125,7 +130,8 @@ var obj = {
    prop: {
       fullname: 'Aurelio De Rosa',
       getFullname: function() {
-         return this.fullname;
+         console.log(this.fullname);
+         return this.fullname;         
       }
    }
 };
@@ -144,3 +150,4 @@ function printing() {
 }
 
 printing();
+console.log(printing());
