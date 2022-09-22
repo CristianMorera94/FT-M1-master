@@ -11,10 +11,53 @@ Implementar la clase LinkedList, definiendo los siguientes métodos:
   En caso de que la búsqueda no arroje resultados, search debe retornar null.
 */
 
-function LinkedList() {}
+function LinkedList() {
+  this.head =null;
+}
 
-function Node(value) {}
+function Node(value) {
+  this.value = value;
+  this.next = null;
+}
 
+LinkedList.prototype.add = function (data) {
+  var node = new Node(data)
+  var curr =this.head
+  if (curr) {
+    this.head = node
+    return;
+  }
+  while (curr.next) {
+    curr = curr.next
+  }
+  curr.next = node;
+};
+LinkedList.prototype.remove = function () {
+  var curr = this.head
+  if (!curr) return null; 
+  if (!curr.netx) { 
+    this.head = null;
+    return curr.value;
+  }
+  while (curr.next.netx) {
+    curr = curr.next
+  }
+  var aux = curr.next
+  curr.next = null
+  return aux.value;
+};
+LinkedList.prototype.search= function (arg) {
+  var curr = this.head
+  if (!curr) return null;  
+  while (curr) {
+    if (typeof arg === 'function'){
+      if(arg(curr.value))return curr.value;
+    }
+    if (arg == curr.value) return curr.value;
+    curr = curr.next
+  }
+  return null;
+};
 /*
 Implementar la clase HashTable.
 
@@ -30,7 +73,19 @@ La clase debe tener los siguientes métodos:
 Ejemplo: supongamos que quiero guardar {instructora: 'Ani'} en la tabla. Primero puedo chequear, con hasKey, si ya hay algo en la tabla con el nombre 'instructora'; luego, invocando set('instructora', 'Ani'), se almacenará el par clave-valor en un bucket específico (determinado al hashear la clave)
 */
 
-function HashTable() {}
+function HashTable() {
+  this.numBuckets = 35;
+}
+
+HashTable.prototype.hash = function (key){
+  for (let i = 0; i < key.length; i++) {
+    aux = aux + key.charCodeAt(i)    
+  }
+  return aux % this.numBuckets;
+};
+HashTable.prototype.set = function (){};
+HashTable.prototype.get = function (){};
+HashTable.prototype.haskey = function (){};
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
